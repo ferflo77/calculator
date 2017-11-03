@@ -6,9 +6,14 @@ import Calculator from './Calculator'
 configure({ adapter: new Adapter() })
 
 describe('<Calculator />', () => {
-  it('Button component prop should be keyPress function', () => {
+  it('makeOperation function should return a correct operation', () => {
     const wrapper = shallow(<Calculator />)
-    expect(wrapper.find('Button').first()
-      .prop('onClick')).toBe(wrapper.instance().keyPress.bind())
+    const inst = wrapper.instance()
+    expect(inst.makeOperation(4, 3, '*')).toBe(12)
+  })
+  it('makeOperation function should return null if 2 nulls are passed', () => {
+    const wrapper = shallow(<Calculator />)
+    const inst = wrapper.instance()
+    expect(inst.makeOperation(3, null, null)).toBe(3)
   })
 })

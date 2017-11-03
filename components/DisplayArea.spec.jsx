@@ -13,6 +13,6 @@ describe('<DisplayArea />', () => {
   })
   it('input size should not be larger than 9 characters', () => {
     const wrapper = shallow(<DisplayArea ops="121212121212" />)
-    expect(wrapper.text()).toEqual('ERROR')
+    expect(wrapper.text()).toEqual('')
   })
 })
